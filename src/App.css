@@ -1,0 +1,57 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: Arial, sans-serif; background: #f3f4f6; }
+
+.app-layout { display: flex; min-height: 100vh; }
+
+.main-content { flex: 1; padding: 24px; }
+
+.kpi-row { display: flex; gap: 16px; margin: 20px 0; flex-wrap: wrap; }
+
+.kpi-card {
+  background: white; padding: 16px 20px; border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); flex: 1; min-width: 180px;
+}
+.kpi-card h3 { font-size: 13px; color: #6b7280; margin-bottom: 6px; }
+.kpi-card p { font-size: 24px; font-weight: bold; color: #111827; }
+
+.chart-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+
+.chart-box {
+  background: white; padding: 16px; border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); flex: 1; min-width: 300px;
+}
+
+.ai-insight {
+  background: #eef2ff; border-left: 4px solid #4f46e5;
+  padding: 16px; border-radius: 8px;
+}
+
+header { padding: 16px 0; }
+
+nav ul { list-style: none; padding: 20px; }
+nav li { padding: 10px 0; cursor: pointer; }
+
+.app-layout > nav, .app-layout > aside {
+  width: 220px; background: #111827; color: white; padding: 20px;
+}
+.profile-card {
+  background: white; padding: 24px; border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-top: 20px;
+}
+.profile-card .role { color: #6b7280; margin-bottom: 16px; }
+.profile-row { padding: 6px 0; }
+.profile-row span { font-weight: bold; margin-right: 6px; }
+.skills-list { list-style: none; padding: 10px 0; }
+.skills-list li { padding: 4px 0; }
+nav a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.nav-link.active {
+  background-color: rgba(255,255,255,0.1);
+  font-weight: bold;
+  border-left: 3px solid orange;
+  padding-left: 8px;
+}
