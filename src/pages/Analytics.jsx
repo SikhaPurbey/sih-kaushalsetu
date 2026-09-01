@@ -1,4 +1,16 @@
+import EmploymentChart from '../components/EmploymentChart'
+import SkillGapChart from '../components/SkillGapChart'
+
 function Analytics() {
-  return <h2 style={{ padding: '20px' }}>Analytics — coming soon</h2>
+  return (
+    <div>
+      <h2>Analytics Overview</h2>
+      <div className="chart-row">
+        <EmploymentChart />
+        <SkillGapChart />
+      </div>
+    </div>
+  )
 }
+
 export default Analytics

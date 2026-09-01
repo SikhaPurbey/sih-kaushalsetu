@@ -1,4 +1,12 @@
+import AIInsightCard from '../components/AIInsightCard'
+
 function AIInsights() {
-  return <h2 style={{ padding: '20px' }}>AI Insights — coming soon</h2>
+  return (
+    <div>
+      <h2>AI Insights</h2>
+      <AIInsightCard />
+    </div>
+  )
 }
+
 export default AIInsights

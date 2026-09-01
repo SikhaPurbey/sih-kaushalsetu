@@ -1,36 +1,25 @@
-function TraineeProfile() {
+function TraineeProfile({ trainee }) {
   return (
     <div className="profile-card">
-      <h2>Rahul Sharma</h2>
-      <p className="role">CNC Technician</p>
+      <h2>{trainee.name}</h2>
+      <p className="role">{trainee.role}</p>
 
-      <div className="profile-row">
-        <span>Training:</span> CNC Machine Operator
-      </div>
-      <div className="profile-row">
-        <span>Certification:</span> ✓ Certified
-      </div>
-      <div className="profile-row">
-        <span>Employment:</span> ✓ Employed
-      </div>
-      <div className="profile-row">
-        <span>Salary:</span> ₹24,000/month
-      </div>
+      <div className="profile-row"><span>Training:</span> {trainee.training}</div>
+      <div className="profile-row"><span>Certification:</span> {trainee.certified ? '✓ Certified' : 'Pending'}</div>
+      <div className="profile-row"><span>Employment:</span> {trainee.employed ? '✓ Employed' : 'Unemployed'}</div>
+      <div className="profile-row"><span>Salary:</span> {trainee.salary}</div>
 
       <h3>Skills</h3>
       <ul className="skills-list">
-        <li>CNC Operation — 90%</li>
-        <li>Machine Safety — 100%</li>
-        <li>CAD — 50%</li>
-        <li>Programming — 30%</li>
+        {trainee.skills.map((s, i) => <li key={i}>{s}</li>)}
       </ul>
 
       <h3>Employment Journey</h3>
-      <p>Training → Certification → Job → 3-Month Retention ✓ → 6-Month Retention ✓</p>
+      <p>{trainee.journey}</p>
 
       <div className="ai-insight">
         <h3>🤖 AI Recommendation</h3>
-        <p>Improve CNC programming skills for better career progression.</p>
+        <p>{trainee.recommendation}</p>
       </div>
     </div>
   )

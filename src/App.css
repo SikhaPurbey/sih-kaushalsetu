@@ -60,3 +60,10 @@ nav a {
   .app-layout > nav { width: 100%; }
   .kpi-row, .chart-row { flex-direction: column; }
 }
+.search-box {
+  padding: 10px 14px; width: 100%; max-width: 400px;
+  border: 1px solid #d1d5db; border-radius: 8px; margin: 16px 0; font-size: 14px;
+}
+.data-table { width: 100%; border-collapse: collapse; margin-top: 16px; background: white; }
+.data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+.data-table th { background: #f9fafb; font-size: 13px; color: #6b7280; }
