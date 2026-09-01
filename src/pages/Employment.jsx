@@ -1,4 +1,12 @@
+import EmploymentChart from '../components/EmploymentChart'
+
 function Employment() {
-  return <h2 style={{ padding: '20px' }}>Employment — coming soon</h2>
+  return (
+    <div>
+      <h2>Employment Analytics</h2>
+      <EmploymentChart />
+    </div>
+  )
 }
+
 export default Employment

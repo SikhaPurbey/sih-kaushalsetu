@@ -1,4 +1,12 @@
+import SkillGapChart from '../components/SkillGapChart'
+
 function Skills() {
-  return <h2 style={{ padding: '20px' }}>Skills — coming soon</h2>
+  return (
+    <div>
+      <h2>Skills Analysis</h2>
+      <SkillGapChart />
+    </div>
+  )
 }
+
 export default Skills
