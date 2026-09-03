@@ -2,7 +2,6 @@ import KpiCard from '../components/kpiCard'
 import EmploymentChart from '../components/EmploymentChart'
 import SkillGapChart from '../components/SkillGapChart'
 import AIInsightCard from '../components/AIInsightCard'
-import TraineeProfile from '../components/TraineeProfile'
 
 function Dashboard() {
   return (
@@ -18,7 +17,6 @@ function Dashboard() {
         <SkillGapChart />
       </div>
       <AIInsightCard />
-      <TraineeProfile />
     </>
   )
 }
