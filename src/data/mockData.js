@@ -60,29 +60,46 @@ export const programmes = [
 ]
 
 export const skillGaps = [
-  { skill: 'Communication', level: 38, demand: 'High', gap: 62 },
-  { skill: 'Digital Skills', level: 48, demand: 'High', gap: 52 },
-  { skill: 'CNC', level: 59, demand: 'Medium', gap: 41 },
-  { skill: 'Data Analysis', level: 70, demand: 'Medium', gap: 30 },
+  { skill: 'Communication', level: 38, demand: 'High', gap: 62, recommended: 'Advanced Communication Workshop' },
+  { skill: 'Digital Skills', level: 48, demand: 'High', gap: 52, recommended: 'Digital Literacy Bootcamp' },
+  { skill: 'CNC', level: 59, demand: 'Medium', gap: 41, recommended: 'Advanced CNC Practical Training' },
+  { skill: 'Data Analysis', level: 70, demand: 'Medium', gap: 30, recommended: 'Applied Analytics Certification' },
 ]
 
 export const aiInsights = [
   {
+    priority: 'High',
     problem: 'High skill mismatch detected among manufacturing trainees in District X.',
     evidence: 'CNC programme shows 75% employment rate but only 59% average skill proficiency at placement.',
     action: 'Introduce advanced practical CNC training before placement.',
     impact: 'Projected +12% employment rate over next cohort.'
   },
   {
+    priority: 'Medium',
     problem: 'Digital-skills industry demand is rising faster than current training coverage.',
     evidence: 'Digital Skills Bootcamp enrollment up 18% QoQ; industry job postings up 34% QoQ.',
     action: 'Expand Digital Skills Bootcamp capacity by 25%.',
     impact: 'Could close ~150 unmet placements per quarter.'
   },
   {
+    priority: 'High',
     problem: 'Communication Skills programme has comparatively low employment despite decent completion.',
     evidence: 'Completion rate 75%, but employment rate only 60% — lowest among active programmes.',
     action: 'Add job-readiness and interview-prep module.',
     impact: 'Estimated employment rate improvement to 70%+.'
   },
+]
+export const districtEmployment = [
+  { district: 'Pune', trained: 2400, employed: 1980 },
+  { district: 'Nagpur', trained: 1800, employed: 1350 },
+  { district: 'Nashik', trained: 1500, employed: 1020 },
+  { district: 'Aurangabad', trained: 1200, employed: 720 },
+]
+
+export const salaryDistribution = [
+  { range: '₹10k–15k', count: 420 },
+  { range: '₹15k–20k', count: 1850 },
+  { range: '₹20k–25k', count: 2100 },
+  { range: '₹25k–30k', count: 780 },
+  { range: '₹30k+', count: 280 },
 ]

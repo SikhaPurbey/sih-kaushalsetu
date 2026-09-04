@@ -1,5 +1,7 @@
 import { kpis, programmes } from '../data/mockData'
 import EmploymentChart from '../components/EmploymentChart'
+import DistrictEmploymentChart from '../components/DistrictEmploymentChart'
+import SalaryDistributionChart from '../components/SalaryDistributionChart'
 
 function Employment() {
   return (
@@ -11,13 +13,20 @@ function Employment() {
         <div className="kpi-card"><h3>Avg Salary</h3><p>{kpis.avgSalary}</p></div>
         <div className="kpi-card"><h3>Salary Growth</h3><p className="trend up">↑ {kpis.salaryGrowth}%</p></div>
       </div>
+
       <EmploymentChart />
+
+      <div className="chart-row">
+        <DistrictEmploymentChart />
+        <SalaryDistributionChart />
+      </div>
+
       <h3 style={{ margin: '20px 0 10px' }}>Employment by Programme</h3>
       <table className="data-table">
-        <thead><tr><th>Programme</th><th>Employed</th><th>Employment Rate</th></tr></thead>
+        <thead><tr><th>Programme</th><th>Employed</th><th>Employment Rate</th><th>Retention</th></tr></thead>
         <tbody>
           {programmes.map((p, i) => (
-            <tr key={i}><td>{p.name}</td><td>{p.employed}</td><td>{p.employmentRate}%</td></tr>
+            <tr key={i}><td>{p.name}</td><td>{p.employed}</td><td>{p.employmentRate}%</td><td>{p.retention}%</td></tr>
           ))}
         </tbody>
       </table>
