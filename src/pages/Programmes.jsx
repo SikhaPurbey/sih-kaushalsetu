@@ -1,8 +1,4 @@
-const programmes = [
-  { name: 'CNC Machine Operator', enrolled: 320, completed: 280, employed: 210 },
-  { name: 'Digital Skills Bootcamp', enrolled: 450, completed: 400, employed: 310 },
-  { name: 'Communication Skills', enrolled: 200, completed: 150, employed: 90 },
-]
+import { programmes } from '../data/mockData'
 
 function Programmes() {
   return (
@@ -10,12 +6,18 @@ function Programmes() {
       <h2>Programme Performance</h2>
       <table className="data-table">
         <thead>
-          <tr><th>Programme</th><th>Enrolled</th><th>Completed</th><th>Employed</th></tr>
+          <tr>
+            <th>Programme</th><th>Enrolled</th><th>Completed</th><th>Certified</th>
+            <th>Employed</th><th>Employment Rate</th><th>Retention</th><th>Avg Salary</th>
+          </tr>
         </thead>
         <tbody>
           {programmes.map((p, i) => (
             <tr key={i}>
-              <td>{p.name}</td><td>{p.enrolled}</td><td>{p.completed}</td><td>{p.employed}</td>
+              <td>{p.name}</td><td>{p.enrolled}</td><td>{p.completed}</td><td>{p.certified}</td>
+              <td>{p.employed}</td>
+              <td><span className={`badge ${p.employmentRate >= 75 ? 'ok' : 'risk'}`}>{p.employmentRate}%</span></td>
+              <td>{p.retention}%</td><td>{p.avgSalary}</td>
             </tr>
           ))}
         </tbody>

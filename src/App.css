@@ -67,3 +67,42 @@ nav a {
 .data-table { width: 100%; border-collapse: collapse; margin-top: 16px; background: white; }
 .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
 .data-table th { background: #f9fafb; font-size: 13px; color: #6b7280; }
+.dash-section { margin-bottom: 32px; }
+.dash-section h2 { font-size: 15px; color: #374151; margin-bottom: 14px; letter-spacing: 0.3px; }
+
+.funnel-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  background: white; padding: 20px; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.funnel-step {
+  display: flex; flex-direction: column-reverse; align-items: center;
+  background: #f9fafb; border-radius: 8px; padding: 14px 18px; flex: 1; min-width: 110px;
+}
+.funnel-step span { font-size: 22px; font-weight: bold; color: #111827; }
+.funnel-step.highlight { background: #eef2ff; border: 1px solid #4f46e5; }
+.funnel-step.highlight span { color: #4f46e5; }
+.funnel-arrow { color: #9ca3af; font-size: 18px; }
+
+.trend { font-size: 12px; margin-left: 6px; }
+.trend.up { color: #059669; }
+.trend.down { color: #dc2626; }
+.filter-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+.filter-select { padding: 10px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; }
+
+.clickable-row { cursor: pointer; }
+.clickable-row:hover { background: #f9fafb; }
+.expand-row td { background: #fafafa; padding: 0; }
+.expand-row .profile-card { box-shadow: none; margin: 0; border-radius: 0; }
+
+.badge { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+.badge.ok { background: #d1fae5; color: #065f46; }
+.badge.risk { background: #fee2e2; color: #991b1b; }
+.demo-tag {
+  font-size: 10px; background: #fef3c7; color: #92400e;
+  padding: 2px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle;
+}
+.insight-card {
+  background: white; padding: 18px; border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 14px; border-left: 4px solid #4f46e5;
+}
+.insight-card p { margin: 6px 0; font-size: 14px; }

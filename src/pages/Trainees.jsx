@@ -1,48 +1,77 @@
 import { useState } from 'react'
-import TraineeProfile from '../components/TraineeProfile'
-
-const trainees = [
-  {
-    name: 'Rahul Sharma', role: 'CNC Technician', training: 'CNC Machine Operator',
-    certified: true, employed: true, salary: '₹24,000/month',
-    skills: ['CNC Operation — 90%', 'Machine Safety — 100%', 'CAD — 50%', 'Programming — 30%'],
-    journey: 'Training → Certification → Job → 3-Month Retention ✓ → 6-Month Retention ✓',
-    recommendation: 'Improve CNC programming skills for better career progression.'
-  },
-  {
-    name: 'Priya Patil', role: 'Digital Marketing Associate', training: 'Digital Skills Bootcamp',
-    certified: true, employed: true, salary: '₹19,500/month',
-    skills: ['SEO — 75%', 'Content Writing — 85%', 'Analytics — 60%'],
-    journey: 'Training → Certification → Job → 3-Month Retention ✓',
-    recommendation: 'Add advanced analytics training to improve growth prospects.'
-  },
-  {
-    name: 'Amit Kale', role: 'Trainee — Not Yet Placed', training: 'Communication Skills',
-    certified: true, employed: false, salary: 'N/A',
-    skills: ['Communication — 55%', 'Interview Skills — 40%'],
-    journey: 'Training → Certification → Job Search in progress',
-    recommendation: 'Prioritize interview readiness and communication practice.'
-  }
-]
+import { trainees, traineeDetails } from '../data/mockData'
 
 function Trainees() {
   const [search, setSearch] = useState('')
+  const [filterStatus, setFilterStatus] = useState('All')
+  const [expandedId, setExpandedId] = useState(null)
 
   const filtered = trainees.filter(t =>
-    t.name.toLowerCase().includes(search.toLowerCase())
+    t.name.toLowerCase().includes(search.toLowerCase()) &&
+    (filterStatus === 'All' || t.status === filterStatus)
   )
 
   return (
     <div>
       <h2>Trainees</h2>
-      <input
-        type="text"
-        placeholder="Search trainee by name..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="search-box"
-      />
-      {filtered.map((t, i) => <TraineeProfile key={i} trainee={t} />)}
+      <div className="filter-row">
+        <input
+          type="text"
+          placeholder="Search trainee by name..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="search-box"
+        />
+        <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)} className="filter-select">
+          <option value="All">All Status</option>
+          <option value="On Track">On Track</option>
+          <option value="At Risk">At Risk</option>
+        </select>
+      </div>
+
+      <table className="data-table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>District</th><th>Programme</th>
+            <th>Certified</th><th>Employed</th><th>Job Match</th><th>Salary</th><th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filtered.map(t => (
+            <>
+              <tr key={t.id} onClick={() => setExpandedId(expandedId === t.id ? null : t.id)} className="clickable-row">
+                <td>{t.id}</td>
+                <td>{t.name}</td>
+                <td>{t.district}</td>
+                <td>{t.programme}</td>
+                <td>{t.certified ? '✓' : '—'}</td>
+                <td>{t.employed ? '✓' : '—'}</td>
+                <td>{t.jobMatch}</td>
+                <td>{t.salary ? `₹${t.salary.toLocaleString()}` : 'N/A'}</td>
+                <td><span className={`badge ${t.status === 'At Risk' ? 'risk' : 'ok'}`}>{t.status}</span></td>
+              </tr>
+              {expandedId === t.id && (
+                <tr className="expand-row">
+                  <td colSpan="9">
+                    <div className="profile-card">
+                      <h3>Skills</h3>
+                      <ul className="skills-list">
+                        {traineeDetails[t.id].skills.map((s, i) => <li key={i}>{s}</li>)}
+                      </ul>
+                      <h3>Employment Journey</h3>
+                      <p>{traineeDetails[t.id].journey}</p>
+                      <div className="ai-insight">
+                        <h3>🤖 AI Recommendation</h3>
+                        <p>{traineeDetails[t.id].recommendation}</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              )}
+            </>
+          ))}
+        </tbody>
+      </table>
       {filtered.length === 0 && <p>No trainees found.</p>}
     </div>
   )
