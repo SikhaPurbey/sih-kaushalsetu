@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 function MyProfile() {
   const { user, setUser, logout } = useAuth()
+    const navigate = useNavigate()
   const [newSkill, setNewSkill] = useState('')
   const [newSkillLevel, setNewSkillLevel] = useState('Beginner')
   const [uploadStatus, setUploadStatus] = useState('')
@@ -38,7 +40,7 @@ function MyProfile() {
     <div>
       <div className="profile-header-row">
         <h2>My Profile</h2>
-        <button className="btn btn-secondary" onClick={logout}>Logout</button>
+               <button className="btn btn-secondary" onClick={() => { logout(); navigate('/') }}>Logout</button>
       </div>
 
       <section className="dash-section">
@@ -102,12 +104,16 @@ function MyProfile() {
         </div>
       </section>
 
-      <section className="dash-section">
+            <section className="dash-section">
         <h3>Certificates</h3>
         <div className="profile-card">
           <p>Certificate upload coming soon — backend integration required.</p>
         </div>
       </section>
+
+      <div style={{ marginTop: '20px' }}>
+        <button className="btn btn-primary" onClick={() => navigate('/dashboard')}>Continue to Dashboard</button>
+      </div>
     </div>
   )
 }

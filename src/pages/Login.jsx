@@ -23,7 +23,7 @@ function Login() {
     setLoading(true)
     try {
       await login(form.email, form.password)
-      navigate('/my-profile')
+            navigate('/dashboard')
     } catch (err) {
       setError(err.message || 'Login failed. Please try again.')
     } finally {
