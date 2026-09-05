@@ -106,3 +106,22 @@ nav a {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 14px; border-left: 4px solid #4f46e5;
 }
 .insight-card p { margin: 6px 0; font-size: 14px; }
+.priority-high { background: #fee2e2; color: #991b1b; }
+.priority-medium { background: #fef3c7; color: #92400e; }
+.priority-low { background: #d1fae5; color: #065f46; }
+.insight-card .badge { margin-bottom: 8px; display: inline-block; }
+.programme-card {
+  background: white; padding: 20px; border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 20px;
+}
+.programme-card h3 { margin-bottom: 14px; }
+.mini-funnel { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.mini-step {
+  display: flex; flex-direction: column-reverse; align-items: center;
+  background: #f9fafb; border-radius: 6px; padding: 8px 12px; font-size: 12px; min-width: 80px;
+}
+.mini-step span { font-size: 16px; font-weight: bold; color: #111827; }
+.mini-step.highlight { background: #eef2ff; }
+.mini-step.highlight span { color: #4f46e5; }
+.mini-arrow { color: #9ca3af; }
+.programme-stats { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #374151; }

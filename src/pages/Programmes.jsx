@@ -4,24 +4,32 @@ function Programmes() {
   return (
     <div>
       <h2>Programme Performance</h2>
-      <table className="data-table">
-        <thead>
-          <tr>
-            <th>Programme</th><th>Enrolled</th><th>Completed</th><th>Certified</th>
-            <th>Employed</th><th>Employment Rate</th><th>Retention</th><th>Avg Salary</th>
-          </tr>
-        </thead>
-        <tbody>
-          {programmes.map((p, i) => (
-            <tr key={i}>
-              <td>{p.name}</td><td>{p.enrolled}</td><td>{p.completed}</td><td>{p.certified}</td>
-              <td>{p.employed}</td>
-              <td><span className={`badge ${p.employmentRate >= 75 ? 'ok' : 'risk'}`}>{p.employmentRate}%</span></td>
-              <td>{p.retention}%</td><td>{p.avgSalary}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
+      {programmes.map((p, i) => {
+        const completionRate = Math.round((p.completed / p.enrolled) * 100)
+        const certRate = Math.round((p.certified / p.completed) * 100)
+        return (
+          <div key={i} className="programme-card">
+            <h3>{p.name}</h3>
+            <div className="mini-funnel">
+              <div className="mini-step"><span>{p.enrolled}</span>Enrolled</div>
+              <div className="mini-arrow">→</div>
+              <div className="mini-step"><span>{p.completed}</span>Completed</div>
+              <div className="mini-arrow">→</div>
+              <div className="mini-step"><span>{p.certified}</span>Certified</div>
+              <div className="mini-arrow">→</div>
+              <div className="mini-step highlight"><span>{p.employed}</span>Employed</div>
+            </div>
+            <div className="programme-stats">
+              <span>Completion: {completionRate}%</span>
+              <span>Certification: {certRate}%</span>
+              <span className={`badge ${p.employmentRate >= 75 ? 'ok' : 'risk'}`}>Employment: {p.employmentRate}%</span>
+              <span>Retention: {p.retention}%</span>
+              <span>Avg Salary: {p.avgSalary}</span>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
